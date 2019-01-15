@@ -1,5 +1,6 @@
 package cn.johnho.nettywebchat.client.console;
 
+import cn.johnho.nettywebchat.protocol.BasePacket;
 import io.netty.channel.Channel;
 import cn.johnho.nettywebchat.protocol.request.CreateGroupRequestPacket;
 
@@ -9,7 +10,7 @@ import java.util.Scanner;
 /**
  * @author hezilong
  */
-public class CreateGroupConsoleCommand implements ConsoleCommand
+public class CreateGroupConsoleCommand implements ConsoleCommand<CreateGroupRequestPacket>
 {
 
     private static final String USER_ID_SPLITTER = ",";
@@ -22,5 +23,11 @@ public class CreateGroupConsoleCommand implements ConsoleCommand
         String userIds = scanner.next();
         createGroupRequestPacket.setUserIdList(Arrays.asList(userIds.split(USER_ID_SPLITTER)));
         channel.writeAndFlush(createGroupRequestPacket);
+    }
+
+    @Override
+    public void exec(CreateGroupRequestPacket model, Channel channel)
+    {
+
     }
 }

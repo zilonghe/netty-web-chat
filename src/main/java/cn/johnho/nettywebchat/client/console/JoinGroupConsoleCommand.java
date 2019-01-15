@@ -1,5 +1,6 @@
 package cn.johnho.nettywebchat.client.console;
 
+import cn.johnho.nettywebchat.protocol.BasePacket;
 import io.netty.channel.Channel;
 import cn.johnho.nettywebchat.protocol.request.JoinGroupRequestPacket;
 
@@ -20,5 +21,11 @@ public class JoinGroupConsoleCommand implements ConsoleCommand
 
         joinGroupRequestPacket.setGroupId(groupId);
         channel.writeAndFlush(joinGroupRequestPacket);
+    }
+
+    @Override
+    public void exec(BasePacket model, Channel channel)
+    {
+
     }
 }

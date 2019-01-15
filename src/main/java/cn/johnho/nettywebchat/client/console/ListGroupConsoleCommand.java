@@ -1,5 +1,6 @@
 package cn.johnho.nettywebchat.client.console;
 
+import cn.johnho.nettywebchat.protocol.BasePacket;
 import io.netty.channel.Channel;
 import cn.johnho.nettywebchat.protocol.request.ListGroupRequestPacket;
 
@@ -18,5 +19,11 @@ public class ListGroupConsoleCommand implements ConsoleCommand
         ListGroupRequestPacket listGroupRequestPacket = new ListGroupRequestPacket();
         listGroupRequestPacket.setGroupId(groupId);
         channel.writeAndFlush(listGroupRequestPacket);
+    }
+
+    @Override
+    public void exec(BasePacket model, Channel channel)
+    {
+
     }
 }

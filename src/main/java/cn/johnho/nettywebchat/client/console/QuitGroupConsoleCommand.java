@@ -1,5 +1,6 @@
 package cn.johnho.nettywebchat.client.console;
 
+import cn.johnho.nettywebchat.protocol.BasePacket;
 import io.netty.channel.Channel;
 import cn.johnho.nettywebchat.protocol.request.QuitGroupRequestPacket;
 
@@ -20,5 +21,11 @@ public class QuitGroupConsoleCommand implements ConsoleCommand
 
         quitGroupRequestPacket.setGroupId(groupId);
         channel.writeAndFlush(quitGroupRequestPacket);
+    }
+
+    @Override
+    public void exec(BasePacket model, Channel channel)
+    {
+
     }
 }

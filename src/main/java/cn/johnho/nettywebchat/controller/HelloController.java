@@ -17,9 +17,4 @@ public class HelloController
         return "hello docker";
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public boolean login(User user)
-    {
-        return true;
-    }
 }
